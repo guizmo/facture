@@ -43,6 +43,7 @@ export class LoginPage {
 
   private onSignInSuccess(): void {
     console.log("display name ",this.authProvider.displayName());
+    this.navCtrl.setRoot('HomePage');
   }
 
 }

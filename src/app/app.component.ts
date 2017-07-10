@@ -27,22 +27,21 @@ export class MyApp {
     public authProvider: AuthProvider,
     private afAuth: AngularFireAuth
   ) {
-    this.initializeApp();
+    //this.initializeApp();
+
+    console.log(this)
 
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Home', component: 'HomePage' },
       { title: 'Login', component: 'LoginPage' },
-      { title: 'List', component: ListPage }
+      { title: 'List', component: ListPage },
+      { title: 'Documents', component: 'DocumentsPage' }
     ];
 
     let authSub = afAuth.authState.subscribe((user) => {
       if (!user) {
         this.nav.setRoot('LoginPage');
-        authSub.unsubscribe();
-      } else {
-        this.nav.setRoot('HomePage')
-        authSub.unsubscribe();
       }
       console.log('app comp sub test')
     });
